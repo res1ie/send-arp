@@ -110,7 +110,6 @@ int main(int argc, char* argv[]) {
 		sendpacket(handle,Mac::broadcastMac(),dev_MAC,dev_MAC,dev_IP,Mac::nullMac(),senderIp,ArpHdr::Request);	
 		recvpacket(handle,&header,&ppacket);
 		Mac senderMac=ppacket->eth_.smac_;
-		printf("senderMac:%s\n",((std::string)senderMac).c_str());
 		sendpacket(handle,senderMac,dev_MAC,dev_MAC,targetIp,senderMac,senderIp,ArpHdr::Reply);
 	}
 	pcap_close(handle);
